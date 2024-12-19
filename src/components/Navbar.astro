@@ -1,0 +1,59 @@
+---
+import { onMount } from 'solid-js';
+
+import { Image } from 'astro:assets';
+import WahuDark2020 from '../assets/WahuDark2020.svg';
+
+onMount(() => {
+  const links = document.querySelectorAll('.nav-link') as NodeListOf<HTMLAnchorElement>;
+  links.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('text-white');
+    }
+  });
+});
+---
+<nav class=" bg-gray-800 text-white py-8 fixed top-0 w-full">
+    <div class="mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-st">
+        <Image src={WahuDark2020} alt="Wahu Logo" class= "h-14 w-auto ml-8"/>
+      </div>
+      <!-- Pages -->
+      <div class="flex space-x-4 ml-20">
+        <a href="/cinema" class="hover:text-gray-300 text-gray-400">Cinema</a>
+        <a href="/festivals" class="hover:text-gray-300 text-gray-400">Festivales</a>
+        <a href="/academy" class="hover:text-gray-300 text-gray-400">Academia</a>
+        <a href="/tv" class="hover:text-gray-300 text-gray-400">TV</a>
+      </div>
+      <!-- Contact and Login -->
+      <div class="flex space-x-4 mr-5">
+        <button class="
+        bg-transparent 
+        text-gray-400 
+        font-semibold 
+        py-2 
+        px-4 
+        hover:border-transparent 
+        rounded">
+            CONTÁCTANOS
+          </button>
+          <button class="
+          bg-transparent 
+          text-gray-700 
+          font-semibold 
+          hover:text-white 
+          py-2 
+          px-4 
+          border 
+          border-gray-500 
+          hover:border-transparent 
+          hover:bg-gray-500
+          transition
+          duration-400
+          rounded-md">
+            INGRESAR   
+            </button>
+      </div>
+    </div>
+  </nav>
