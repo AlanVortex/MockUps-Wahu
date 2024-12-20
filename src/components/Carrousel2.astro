@@ -1,0 +1,63 @@
+---
+// Importación de imágenes
+import ernestoProduccion from '../assets/ernestoProduccion.png';
+import antonioProduccion from '../assets/antonioProduccion.png';
+---
+
+<!-- Carrusel -->
+<div class="relative mt-6">
+    <!-- Botón Izquierdo -->
+    <button
+        onclick="document.getElementById('carousel2').scrollBy({ left: -300, behavior: 'smooth' })"
+        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+        aria-label="Scroll Left"
+    >
+        &#8592;
+    </button>
+
+    <!-- Contenedor del carrusel -->
+    <div
+        id="carousel2"
+        class="flex overflow-x-auto flex-nowrap gap-4 w-full scrollbar-hide scroll-smooth"
+    >
+        <!-- Imagen con nombre y carrera debajo -->
+        <div class="flex flex-col items-center">
+            <img
+                src={ernestoProduccion.src}
+                alt="Descripción de imagen 1"
+                class="w-auto max-h-48 object-cover rounded-md"
+            />
+            <p class="mt-2 font-bold text-white">Ernesto Cicero</p>
+            <p class="text-sm text-lime-500">The Boss</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <img
+                src={antonioProduccion.src}
+                alt="Descripción de imagen 2"
+                class="w-auto max-h-48 object-cover rounded-md"
+            />
+            <p class="mt-2 font-bold text-white">Antonio Mendez</p>
+            <p class="text-sm text-lime-500">Database Manager</p>
+        </div>
+
+        <!-- Botón Derecho -->
+        <button
+            onclick="document.getElementById('carousel2').scrollBy({ left: 300, behavior: 'smooth' })"
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+            aria-label="Scroll Right"
+        >
+            &#8594;
+        </button>
+    </div>
+
+    <style>
+        .scrollbar-hide {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE y Edge */
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none; /* Chrome, Safari y Edge */
+        }
+    </style>
+</div>
