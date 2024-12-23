@@ -95,14 +95,17 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
     display: none; /* Chrome, Safari y Edge */
   }
   .hover-effect {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  .hover-effect:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  }
+  transition: 
+    transform 0.3s ease, 
+    box-shadow 0.3s ease;
+  transform-origin: center center; /* Asegura que el zoom ocurra en el centro */
+}
+
+.hover-effect:hover {
+  transform: scale(1.1); /* Escala la imagen */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle un efecto de elevación */
+}
+
   #imageModal img {
     animation: fadeIn 0.3s ease-in-out;
   }
@@ -114,4 +117,8 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
       opacity: 1;
     }
   }
+  #carousel {
+  overflow: hidden;
+  position: relative;
+}
 </style>
