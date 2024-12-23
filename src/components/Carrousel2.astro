@@ -1,7 +1,30 @@
 ---
 // Importación de imágenes
-import ernestoProduccion from '../assets/ernestoProduccion.png';
-import antonioProduccion from '../assets/antonioProduccion.png';
+import ernestoProduccion from "../assets/ernestoProduccion.png";
+import antonioProduccion from "../assets/antonioProduccion.png";
+import jocelynProduccion from "../assets/jocelynProduccion.png";
+import lizProduccion from "../assets/lizProduccion.png";
+import esparzaProduccion from "../assets/esparzaProduccion.png";
+
+    function openModal(imageSrc: string) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        if (modalImage) {
+            (modalImage as HTMLImageElement).src = imageSrc; // Establece la ruta de la imagen directamente
+        }
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+    }
+ 
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+    }
+
+
 ---
 
 <!-- Carrusel -->
@@ -25,7 +48,8 @@ import antonioProduccion from '../assets/antonioProduccion.png';
             <img
                 src={ernestoProduccion.src}
                 alt="Descripción de imagen 1"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+                onclick="openModal('../assets/ernestoProduccion.png')"
             />
             <p class="mt-2 font-bold text-white">Ernesto Cicero</p>
             <p class="text-sm text-lime-500">The Boss</p>
@@ -35,10 +59,44 @@ import antonioProduccion from '../assets/antonioProduccion.png';
             <img
                 src={antonioProduccion.src}
                 alt="Descripción de imagen 2"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+                onclick="openModal('../assets/antonioProduccion.png')"
             />
             <p class="mt-2 font-bold text-white">Antonio Mendez</p>
             <p class="text-sm text-lime-500">Database Manager</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <img
+                src={jocelynProduccion.src}
+                alt="Descripción de imagen 3"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+                onclick="openModal('../assets/jocelynProduccion.png')"
+            />
+            <p class="mt-2 font-bold text-white">Jocelyn Flores</p>
+            <p class="text-sm text-lime-500">Project Manager</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <img
+                src={esparzaProduccion.src}
+                alt="Descripción de imagen 4"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+                onclick="openModal('../assets/esparzaProduccion.png')"
+            />
+            <p class="mt-2 font-bold text-white">Jose Antonio Esparza</p>
+            <p class="text-sm text-lime-500">UX Designer</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <img
+                src={lizProduccion.src}
+                alt="Descripción de imagen 5"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+                onclick="openModal('../assets/lizProduccion.png')"
+            />
+            <p class="mt-2 font-bold text-white">Lizeth Almanza</p>
+            <p class="text-sm text-lime-500">Accountant</p>
         </div>
 
         <!-- Botón Derecho -->
@@ -50,14 +108,51 @@ import antonioProduccion from '../assets/antonioProduccion.png';
             &#8594;
         </button>
     </div>
-
-    <style>
-        .scrollbar-hide {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE y Edge */
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none; /* Chrome, Safari y Edge */
-        }
-    </style>
 </div>
+
+<!-- Modal -->
+<div
+    id="imageModal"
+    class="fixed inset-0 bg-black bg-opacity-70  items-center justify-center hidden z-50"
+>
+    <div class="relative">
+        <img id="modalImage" class="max-w-full max-h-full rounded-md" />
+        <button
+            class="absolute top-2 right-2 bg-white text-black p-2 rounded-full"
+            onclick="closeModal()"
+        >
+            ✕
+        </button>
+    </div>
+</div>
+
+<style>
+    .scrollbar-hide {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE y Edge */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none; /* Chrome, Safari y Edge */
+    }
+    .hover-effect {
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    .hover-effect:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    #imageModal img {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+

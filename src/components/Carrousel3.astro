@@ -28,7 +28,7 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
             <img
                 src={willElenco.src}
                 alt="Descripción de imagen 1"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect"
             />
             <p class="mt-2 font-bold text-white">Will Smith</p>
             <p class="text-sm text-lime-500">Adam</p>
@@ -38,7 +38,7 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
             <img
                 src={watsonElenco.src}
                 alt="Descripción de imagen 2"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect"
             />
             <p class="mt-2 font-bold text-white">Ema Watson</p>
             <p class="text-sm text-lime-500">Diana</p>
@@ -48,7 +48,7 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
             <img
                 src={starkElenco.src}
                 alt="Descripción de imagen 3"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect"
             />
             <p class="mt-2 font-bold text-white">Robert Downey Jr.</p>
             <p class="text-sm text-lime-500">David Beckham</p>
@@ -58,7 +58,7 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
             <img
                 src={rockElenco.src}
                 alt="Descripción de imagen 4"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect"
             />
             <p class="mt-2 font-bold text-white">Dwayne Johnson</p>
             <p class="text-sm text-lime-500">The Rock</p>
@@ -68,7 +68,7 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
             <img
                 src={eizaElenco.src}
                 alt="Descripción de imagen 5"
-                class="w-auto max-h-48 object-cover rounded-md"
+                class="w-auto max-h-48 object-cover rounded-md hover-effect"
             />
             <p class="mt-2 font-bold text-white">Eiza Gonzalez</p>
             <p class="text-sm text-lime-500">Amanda</p>
@@ -91,6 +91,26 @@ import eizaElenco from "../assets/eizaElenco.jpeg";
         }
         .scrollbar-hide::-webkit-scrollbar {
             display: none; /* Chrome, Safari y Edge */
+        }
+        .hover-effect {
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+        .hover-effect:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        #imageModal img {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </div>

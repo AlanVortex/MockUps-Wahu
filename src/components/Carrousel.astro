@@ -1,10 +1,10 @@
 ---
 // Importación de imágenes
-import detalleAriadne from '../assets/detalleAriadne.jpeg';
-import detalle2Ariadne from '../assets/detalle2Ariadne.jpeg';
-import detalle3Ariadne from '../assets/detalle3Ariadne.jpg';
-import detalle4Ariadne from '../assets/detalle4Ariadne.jpeg';
-import detalle5Ariadne from '../assets/detalle5Ariadne.jpg';
+import detalleAriadne from "../assets/detalleAriadne.jpeg";
+import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
+import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
+import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
+import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
 ---
 
 <!-- Carrusel -->
@@ -27,52 +27,52 @@ import detalle5Ariadne from '../assets/detalle5Ariadne.jpg';
     <img
       src={detalleAriadne.src}
       alt="Descripción de imagen 1"
-      class="w-auto max-h-48 object-cover rounded-md"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle2Ariadne.src}
       alt="Descripción de imagen 2"
-      class="w-auto max-h-48 object-cover rounded-md"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle3Ariadne.src}
       alt="Descripción de imagen 3"
-      class="w-auto max-h-48 object-cover rounded-md"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle4Ariadne.src}
       alt="Descripción de imagen 4"
-      class="w-auto max-h-48 object-cover rounded-md"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle5Ariadne.src}
       alt="Descripción de imagen 5"
-      class="w-auto max-h-48 object-cover rounded-md"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalleAriadne.src}
-      alt="Descripción de imagen 6"
-      class="w-auto max-h-48 object-cover rounded-md"
+      alt="Descripción de imagen 1"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle2Ariadne.src}
-      alt="Descripción de imagen 7"
-      class="w-auto max-h-48 object-cover rounded-md"
+      alt="Descripción de imagen 2"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle3Ariadne.src}
-      alt="Descripción de imagen 8"
-      class="w-auto max-h-48 object-cover rounded-md"
+      alt="Descripción de imagen 3"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle4Ariadne.src}
-      alt="Descripción de imagen 9"
-      class="w-auto max-h-48 object-cover rounded-md"
+      alt="Descripción de imagen 4"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
     <img
       src={detalle5Ariadne.src}
-      alt="Descripción de imagen 10"
-      class="w-auto max-h-48 object-cover rounded-md"
+      alt="Descripción de imagen 5"
+      class="w-auto max-h-48 object-cover rounded-md hover-effect"
     />
   </div>
 
@@ -93,5 +93,25 @@ import detalle5Ariadne from '../assets/detalle5Ariadne.jpg';
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari y Edge */
+  }
+  .hover-effect {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .hover-effect:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  #imageModal img {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
