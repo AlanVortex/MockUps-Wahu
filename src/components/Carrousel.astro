@@ -1,13 +1,24 @@
 ---
-// Importación de imágenes
 import detalleAriadne from "../assets/detalleAriadne.jpeg";
 import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
 import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
 import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
 import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
----
 
-<!-- Carrusel -->
+// Lista de imágenes con su fuente y descripción
+const images = [
+  { src: detalleAriadne.src, alt: "Detalle Ariadne 1" },
+  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2" },
+  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3" },
+  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4" },
+  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5" },
+  { src: detalleAriadne.src, alt: "Detalle Ariadne 1" },
+  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2" },
+  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3" },
+  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4" },
+  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5" },
+];
+---
 <div class="relative mt-6">
   <!-- Botón Izquierdo -->
   <button
@@ -23,57 +34,15 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
     id="carousel"
     class="flex overflow-x-auto flex-nowrap gap-4 w-full scrollbar-hide scroll-smooth"
   >
-    <!-- Imágenes del carrusel -->
-    <img
-      src={detalleAriadne.src}
-      alt="Descripción de imagen 1"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle2Ariadne.src}
-      alt="Descripción de imagen 2"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle3Ariadne.src}
-      alt="Descripción de imagen 3"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle4Ariadne.src}
-      alt="Descripción de imagen 4"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle5Ariadne.src}
-      alt="Descripción de imagen 5"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalleAriadne.src}
-      alt="Descripción de imagen 1"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle2Ariadne.src}
-      alt="Descripción de imagen 2"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle3Ariadne.src}
-      alt="Descripción de imagen 3"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle4Ariadne.src}
-      alt="Descripción de imagen 4"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
-    <img
-      src={detalle5Ariadne.src}
-      alt="Descripción de imagen 5"
-      class="w-auto max-h-48 object-cover rounded-md hover-effect"
-    />
+    {images.map((image, index) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
+        data-src={image.src}
+        data-alt={image.alt}
+      />
+    ))}
   </div>
 
   <!-- Botón Derecho -->
@@ -84,7 +53,62 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
   >
     &#8594;
   </button>
+
+  <!-- Modal de imagen expandida -->
+  <div
+    id="imageModal"
+    class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-75 z-20"
+  >
+    <div class="relative">
+      <img
+        id="modalImage"
+        src=""
+        alt=""
+        class="max-w-full max-h-[90vh] object-contain rounded-md"
+      />
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage") as HTMLImageElement;
+  const closeModalButton = document.getElementById("closeModalButton");
+
+  if (!modal || !modalImage) {
+    console.error("El modal o la imagen del modal no se encontraron en el DOM.");
+    return;
+  }
+
+  // Abrir modal al hacer clic en una imagen
+  document.querySelectorAll("#carousel img").forEach((img) => {
+    img.addEventListener("click", () => {
+      const src = img.getAttribute("data-src");
+      const alt = img.getAttribute("data-alt");
+
+      if (!src || !alt) {
+        console.error("La imagen no tiene los atributos 'data-src' o 'data-alt'.");
+        return;
+      }
+
+      modalImage.src = src;
+      modalImage.alt = alt;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    });
+  });
+
+  // Cerrar modal al hacer clic en el botón de cierre o en el fondo
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal || e.target === closeModalButton) {
+      modal.classList.remove("flex");
+      modal.classList.add("hidden");
+    }
+  });
+});
+
+</script>
 
 <style>
   .scrollbar-hide {
@@ -95,17 +119,13 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
     display: none; /* Chrome, Safari y Edge */
   }
   .hover-effect {
-  transition: 
-    transform 0.3s ease, 
-    box-shadow 0.3s ease;
-  transform-origin: center center; /* Asegura que el zoom ocurra en el centro */
-}
-
-.hover-effect:hover {
-  transform: scale(1.1); /* Escala la imagen */
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Sombra para darle un efecto de elevación */
-}
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center center;
+  }
+  .hover-effect:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
   #imageModal img {
     animation: fadeIn 0.3s ease-in-out;
   }
@@ -118,7 +138,7 @@ import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
     }
   }
   #carousel {
-  overflow: hidden;
-  position: relative;
-}
+    overflow: hidden;
+    position: relative;
+  }
 </style>
