@@ -20,17 +20,17 @@ onMount(() => {
     <div class="mx-auto flex justify-between items-center">
         <!-- Logo -->
         <div class="flex items-st">
-            <Image
-                src={WahuDark2020}
-                alt="Wahu Logo"
-                class="h-14 w-auto ml-8"
-            />
+            <a href="/cinema">
+                <Image
+                    src={WahuDark2020}
+                    alt="Wahu Logo"
+                    class="h-14 w-auto ml-8"
+                />
+            </a>
         </div>
         <!-- Pages -->
         <div class="flex space-x-4 ml-20">
-            <a href="/" class="hover:text-gray-300 text-gray-400"
-                >ARIADNE</a
-            >
+            <a href="/" class="hover:text-gray-300 text-gray-400">ARIADNE</a>
             <a href="/creators" class="hover:text-gray-300 text-gray-400"
                 >CREADORES</a
             >
@@ -47,14 +47,12 @@ onMount(() => {
         </div>
         <!-- Contact and Login -->
         <div class="flex space-x-4 mr-5">
-            
             <button
-    class="bg-transparent text-gray-400 font-semibold py-2 px-4 hover:border-transparent rounded"
-    onclick="window.location.href='mailto:info@wahustreaming.com?subject=Consulta&body=Hola, tengo una pregunta.'"
->
-    CONTÁCTANOS
-</button>
-
+                class="bg-transparent text-gray-400 font-semibold py-2 px-4 hover:border-transparent rounded"
+                onclick="window.location.href='mailto:info@wahustreaming.com?subject=Consulta&body=Hola, tengo una pregunta.'"
+            >
+                CONTÁCTANOS
+            </button>
 
             <button
                 class="bg-transparent
