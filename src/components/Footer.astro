@@ -4,27 +4,29 @@ import PrivacyAdvise from "../pages/PrivacyAdvise.astro";
 ---
 
 <!-- <footer class="bg-gray-700 text-gray-300 py-4 bottom-0 w-full shadow-xl fixed botomm-0"> -->
-<footer class="bg-gray-700 text-gray-300 py-4 bottom-0 w-full shadow-xl">
-    <div class="mx-auto flex">
-        <div class="ml-3">
-            <p>&copy; 2024 Wahu ® - Algunos derechos están reservados.</p>
-        </div>
-        <div class="ml-3">
-            <p>
-                <a href="/TermsAndConditions">| Términos y condiciones |</a>
-            </p>
-        </div>
-        <div class="ml-1 mr-1">
-            <p><a href="/PrivacyAdvise">Aviso de Privacidad |</a></p>
-        </div>
-        <div class="ml-1 mr-1">
-            <p>
-                <a
-                    href="mailto:info@wahustreaming.com?subject=Consulta&body=Hola, tengo una pregunta."
-                >
-                    Contáctanos |
-                </a>
-            </p>
-        </div>
+<footer
+  class="bg-gray-700 text-gray-300 py-4 bottom-0 w-full shadow-xl lg:text-base text-xs flex flex-col justify-center"
+>
+  <div class="mx-auto flex">
+    <div class="lg:ml-3">
+      <p>
+        <a href="/TermsAndConditions">| Términos y condiciones |</a>
+      </p>
     </div>
+    <div class="lg:mx-1">
+      <p><a href="/PrivacyAdvise">Aviso de Privacidad |</a></p>
+    </div>
+    <div class="lg:mx-1">
+      <p>
+        <a
+          href="mailto:info@wahustreaming.com?subject=Consulta&body=Hola, tengo una pregunta."
+        >
+          Contáctanos |
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="mx-auto mt-3">
+    <p>&copy; 2024 Wahu ® - Algunos derechos están reservados.</p>
+  </div>
 </footer>
