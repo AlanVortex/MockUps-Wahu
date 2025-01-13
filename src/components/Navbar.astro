@@ -1,5 +1,4 @@
 ---
-// filepath: /c:/Users/Jared/Desktop/TRABAJO/MockUps-Wahu/src/components/Navbar.astro
 import { onMount } from "solid-js";
 import { Image } from "astro:assets";
 import WahuDark2020 from "../assets/WahuDark2020.svg";
@@ -42,7 +41,7 @@ onMount(() => {
 });
 ---
 
-<nav class="bg-secundario text-white py-4 z-50 fixed top-0 w-full shadow-xl">
+<nav class="bg-secundario text-white py-4 z-40 fixed top-0 w-full">
   <div class="mx-auto flex justify-between items-center px-4 md:px-8">
     <!-- Logo -->
     <div class="flex items-center">
@@ -56,44 +55,66 @@ onMount(() => {
       id="mobile-menu-button"
       class="md:hidden flex flex-col justify-center items-center w-8 h-8 text-gray-400 hover:text-white focus:outline-none"
     >
-      <span class="block w-6 h-0.5 bg-current transition-transform duration-300"
-      ></span>
-      <span
-        class="block w-6 h-0.5 bg-current my-1 transition-opacity duration-300"
-      ></span>
-      <span class="block w-6 h-0.5 bg-current transition-transform duration-300"
-      ></span>
+      <span class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"></span>
+      <span class="block w-6 h-0.5 bg-current my-1 transition-opacity duration-300"></span>
+      <span class="block w-6 h-0.5 bg-current transition-transform duration-300 origin-center"></span>
     </button>
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex space-x-4 ml-20">
-      <a href="/details" class="nav-link hover:text-gray-300 text-gray-400"
-        >ARIADNE</a
+      <a href="/details" class="nav-link hover:text-white text-gray-400 relative"
+      >ARIADNE<span class="nav-underline"></span></a
       >
-      <a href="/creators" class="nav-link hover:text-gray-300 text-gray-400"
-        >CREADORES</a
+      <a href="/creators" class="nav-link hover:text-white text-gray-400 relative"
+      >CREADORES<span class="nav-underline"></span></a
       >
-      <a href="/" class="nav-link hover:text-gray-300 text-gray-400">Cinema</a>
-      <a href="/festivals" class="nav-link hover:text-gray-300 text-gray-400"
-        >Festivales</a
+      <a href="/" class="nav-link hover:text-white text-gray-400 relative"
+      >Cinema<span class="nav-underline"></span></a
       >
-      <a href="/academy" class="nav-link hover:text-gray-300 text-gray-400"
-        >Academia</a
+      <a href="/festivals" class="nav-link hover:text-white text-gray-400 relative"
+      >Festivales<span class="nav-underline"></span></a
       >
-      <a href="/tv" class="nav-link hover:text-gray-300 text-gray-400">TV</a>
+      <a href="/academy" class="nav-link hover:text-white text-gray-400 relative"
+      >Academia<span class="nav-underline"></span></a
+      >
+      <a href="/tv" class="nav-link hover:text-white text-gray-400 relative"
+      >TV<span class="nav-underline"></span></a
+      >
     </div>
+
+    <style>
+      .nav-link {
+      position: relative;
+      display: inline-block;
+      }
+      .nav-underline {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+      }
+      .nav-link:hover .nav-underline {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+      }
+    </style>
 
     <!-- Contact and Login -->
     <div class="hidden md:flex space-x-4">
       <button
-        class="bg-transparent text-gray-400 font-semibold py-2 px-4 hover:border-transparent rounded"
+        class="bg-transparent text-gray-400 font-semibold py-2 px-4 hover:text-white hover:border-white border border-transparent rounded duration-300"
         onclick="window.location.href='mailto:info@wahustreaming.com?subject=Consulta&body=Hola, tengo una pregunta.'"
       >
         CONTÁCTANOS
       </button>
 
       <button
-        class="bg-transparent text-white font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent hover:bg-gray-500 transition duration-400 rounded-md"
+        class="bg-transparent text-white font-semibold hover:text-lime-400 py-2 px-4 border border-gray-500 hover:border-transparent hover:bg-gray-500 duration-300 rounded-md"
       >
         INGRESAR
       </button>
@@ -103,7 +124,7 @@ onMount(() => {
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden fixed top-16 left-0 w-full bg-secundario md:hidden"
+    class="hidden fixed top-16 left-0 w-full bg-secundario md:hidden z-40 transition-transform transform duration-300"
   >
     <div class="flex flex-col space-y-2 py-4 px-4 justify-center items-center">
       <a href="/details" class="nav-link hover:text-gray-300 text-gray-400"
@@ -135,17 +156,29 @@ onMount(() => {
       </button>
     </div>
   </div>
+
+<style>
+  #mobile-menu-button.open + #mobile-menu {
+    transform: translateY(0);
+  }
+</style>
 </nav>
 
 <style>
   #mobile-menu-button.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(.4rem) rotate(45deg);
+    background-color: white;
   }
   #mobile-menu-button.open span:nth-child(2) {
     opacity: 0;
   }
   #mobile-menu-button.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-.4rem) rotate(-45deg);
+    background-color: white;
+  }
+
+  #mobile-menu-button span {
+    transition: all 0.3s ease;
   }
 </style>
 
@@ -155,5 +188,6 @@ onMount(() => {
 
   button.addEventListener("click", () => {
     menu.classList.toggle("hidden");
+    button.classList.toggle("open");
   });
 </script>

@@ -5,147 +5,174 @@ import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
 import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
 
 const images = [
-  {
-    src: detalle2Ariadne,
-    alt: "Detalle Ariadne 2",
-    title: "PELICULA 1",
-    route: "/pelicula1",
-  },
-  {
-    src: detalle3Ariadne,
-    alt: "Detalle Ariadne 3",
-    title: "PELICULA 2",
-    route: "/pelicula2",
-  },
-  {
-    src: detalle4Ariadne,
-    alt: "Detalle Ariadne 4",
-    title: "PELICULA 3",
-    route: "/pelicula3",
-  },
-  {
-    src: detalle5Ariadne,
-    alt: "Detalle Ariadne 5",
-    title: "PELICULA 4",
-    route: "/pelicula4",
-  },
+    {
+        src: detalle2Ariadne,
+        alt: "Detalle Ariadne 2",
+        title: "PELICULA 1",
+        route: "/pelicula1",
+    },
+    {
+        src: detalle3Ariadne,
+        alt: "Detalle Ariadne 3",
+        title: "PELICULA 2",
+        route: "/pelicula2",
+    },
+    {
+        src: detalle4Ariadne,
+        alt: "Detalle Ariadne 4",
+        title: "PELICULA 3",
+        route: "/pelicula3",
+    },
+    {
+        src: detalle5Ariadne,
+        alt: "Detalle Ariadne 5",
+        title: "PELICULA 4",
+        route: "/pelicula4",
+    },
 ];
+
+const categories = ["Acción", "Comedia", "Drama", "Terror", "Ciencia Ficción", "Documental", "Animación", "Aventura", "Fantasía", "Musical"];
 ---
 
 <div class="h-3/4 bg-principal relative">
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-transparent to-principal z-10"
-  >
-    <div class="absolute bottom-16 lg:bottom-48 left-10 lg:left-48 z-20">
-      <h1
-        id="carouselTitle"
-        class="text-3xl lg:text-6xl transition-opacity duration-500 opacity-0 text-white uppercase font-extrabold"
-      >
-        {images[0].title}
-      </h1>
-      <a
-        id="carouselButton"
-        href="{images[0].route}"
-        class="mt-5 inline-flex px-4 py-2 items-center justify-center gap-2 bg-lime-400 text-black font-bold rounded-lg shadow-black shadow-inner hover:bg-lime-600 hover:text-white opacity-0 transition-opacity duration-500"
-      >
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="14"
-            height="14"
-          >
-            <path
-              d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"
-            ></path>
-          </svg>
-        </span>
-        VER AHORA
-      </a>
-    </div>
-  </div>
-  <div class="flex overflow-hidden w-full h-full relative z-0">
     <div
-      class="flex transition-transform duration-500 ease-in-out"
-      id="carouselTrack"
+        id="categoryBar"
+        class="fixed top-16 left-0 w-full bg-transparent text-black px-10 pb-2 pt-5 z-30 flex gap-5 justify-center lg:justify-start items-center transition-colors duration-300"
     >
-      {
-        images.map((image) => (
-          <div class="min-w-full h-full">
-            <img
-              src={image.src.src}
-              alt={image.alt}
-              class="w-full h-full object-cover"
-            />
-          </div>
-        ))
-      }
+        <h1 class="text-lime-400 font-tittle text-5xl lg:text-7xl">Cinema</h1>
+        <select class="bg-white text-black rounded-md px-2 py-1 hover:bg-black hover:bg-opacity-30 hover:text-white lg:hover:border-2 hover:border-lime-400 cursor-pointer duration-100 focus:bg-black focus:bg-opacity-30 focus:text-white focus:border-2 focus:border-lime-400">
+            {categories.map((category) => (
+            <option value={category}>{category}</option>
+            ))}
+        </select>
     </div>
-  </div>
+    <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-principal z-10"
+    >
+        <div class="absolute bottom-16 lg:bottom-48 left-10 lg:left-48 z-20">
+            <h1
+                id="carouselTitle"
+                class="text-3xl lg:text-6xl transition-opacity duration-500 opacity-0 text-white uppercase font-extrabold"
+            >
+                {images[0].title}
+            </h1>
+            <a
+                id="carouselButton"
+                href="{images[0].route}"
+                class="mt-5 inline-flex px-4 py-2 items-center justify-center gap-2 bg-lime-400 text-black font-bold rounded-lg shadow-black shadow-inner hover:bg-lime-600 hover:text-white opacity-0 transition-opacity duration-500"
+            >
+                <span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        width="14"
+                        height="14"
+                    >
+                        <path
+                            d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"
+                        ></path>
+                    </svg>
+                </span>
+                VER AHORA
+            </a>
+        </div>
+    </div>
+    <div class="flex overflow-hidden w-full h-full relative z-0">
+        <div
+            class="flex transition-transform duration-500 ease-in-out"
+            id="carouselTrack"
+        >
+            {
+                images.map((image) => (
+                    <div class="min-w-full h-full">
+                        <img
+                            src={image.src.src}
+                            alt={image.alt}
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
 </div>
 
 <script>
-  import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
-  import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
-  import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
-  import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
+    import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
+    import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
+    import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
+    import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
 
-  const images = [
-    {
-      src: detalle2Ariadne,
-      alt: "Detalle Ariadne 2",
-      title: "PELICULA 1",
-      route: "/pelicula1",
-    },
-    {
-      src: detalle3Ariadne,
-      alt: "Detalle Ariadne 3",
-      title: "PELICULA 2",
-      route: "/pelicula2",
-    },
-    {
-      src: detalle4Ariadne,
-      alt: "Detalle Ariadne 4",
-      title: "PELICULA 3",
-      route: "/pelicula3",
-    },
-    {
-      src: detalle5Ariadne,
-      alt: "Detalle Ariadne 5",
-      title: "PELICULA 4",
-      route: "/pelicula4",
-    },
-  ];
-  let currentIndex = 0;
-  const track = document.getElementById("carouselTrack");
-  const titleElement = document.getElementById("carouselTitle");
-  const buttonElement = document.getElementById("carouselButton");
-  const slides = track ? track.children : [];
-  const totalSlides = slides.length;
+    const images = [
+        {
+            src: detalle2Ariadne,
+            alt: "Detalle Ariadne 2",
+            title: "PELICULA 1",
+            route: "/pelicula1",
+        },
+        {
+            src: detalle3Ariadne,
+            alt: "Detalle Ariadne 3",
+            title: "PELICULA 2",
+            route: "/pelicula2",
+        },
+        {
+            src: detalle4Ariadne,
+            alt: "Detalle Ariadne 4",
+            title: "PELICULA 3",
+            route: "/pelicula3",
+        },
+        {
+            src: detalle5Ariadne,
+            alt: "Detalle Ariadne 5",
+            title: "PELICULA 4",
+            route: "/pelicula4",
+        },
+    ];
+    let currentIndex = 0;
+    const track = document.getElementById("carouselTrack");
+    const titleElement = document.getElementById("carouselTitle");
+    const buttonElement = document.getElementById("carouselButton");
+    const slides = track ? track.children : [];
+    const totalSlides = slides.length;
 
-  function updateTitleAndButton() {
-    if (titleElement && buttonElement) {
-      titleElement.style.opacity = "0";
-      buttonElement.style.opacity = "0";
-      setTimeout(() => {
-        titleElement.textContent = images[currentIndex].title;
-        (buttonElement as HTMLAnchorElement).href = images[currentIndex].route;
-        titleElement.style.opacity = "1";
-        buttonElement.style.opacity = "1";
-      }, 500);
+    function updateTitleAndButton() {
+        if (titleElement && buttonElement) {
+            titleElement.style.opacity = "0";
+            buttonElement.style.opacity = "0";
+            setTimeout(() => {
+                titleElement.textContent = images[currentIndex].title;
+                (buttonElement as HTMLAnchorElement).href = images[currentIndex].route;
+                titleElement.style.opacity = "1";
+                buttonElement.style.opacity = "1";
+            }, 500);
+        }
     }
-  }
 
-  function moveToNextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    const newTransform = `translateX(-${currentIndex * 100}%)`;
-    if (track) {
-      track.style.transform = newTransform;
+    function moveToNextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        const newTransform = `translateX(-${currentIndex * 100}%)`;
+        if (track) {
+            track.style.transform = newTransform;
+        }
+        updateTitleAndButton();
     }
+
     updateTitleAndButton();
-  }
+    setInterval(moveToNextSlide, 6000);
 
-  updateTitleAndButton();
-  setInterval(moveToNextSlide, 6000);
+    // Scroll event listener to change the category bar background
+    const categoryBar = document.getElementById("categoryBar");
+    window.addEventListener("scroll", () => {
+        if (categoryBar) {
+            if (window.scrollY > 0) {
+                categoryBar.classList.add("bg-secundario");
+                categoryBar.classList.remove("bg-transparent");
+            } else {
+                categoryBar.classList.add("bg-transparent");
+                categoryBar.classList.remove("bg-secundario");
+            }
+        }
+    });
 </script>
