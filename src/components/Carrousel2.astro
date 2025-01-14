@@ -5,68 +5,137 @@ import jocelynProduccion from "../assets/jocelynProduccion.png";
 import lizProduccion from "../assets/lizProduccion.png";
 import esparzaProduccion from "../assets/esparzaProduccion.png";
 
-const images = [
-    { src: ernestoProduccion.src, alt: "Ernesto Produccion" },
-    { src: antonioProduccion.src, alt: "Antonio Produccion" },
-    { src: jocelynProduccion.src, alt: "Jocelyn Produccion" },
-    { src: lizProduccion.src, alt: "Liz Produccion" },
-    { src: esparzaProduccion.src, alt: "Esparza Produccion" },
+interface Person {
+    src: string;
+    alt: string;
+    name: string;
+    position: string;
+}
+
+const people: Person[] = [
+    { src: ernestoProduccion.src, alt: "Ernesto Produccion", name: "Ernesto", position: "Director" },
+    { src: antonioProduccion.src, alt: "Antonio Produccion", name: "Antonio", position: "Productor" },
+    { src: jocelynProduccion.src, alt: "Jocelyn Produccion", name: "Jocelyn", position: "Project Manager" },
+    { src: lizProduccion.src, alt: "Liz Produccion", name: "Liz", position: "Diseñadora" },
+    { src: esparzaProduccion.src, alt: "Esparza Produccion", name: "Esparza", position: "Editor" },
 ];
 ---
 
-<div class="relative mt-6">
+<div class="relative mt-6 flex">
     <!-- Botón Izquierdo -->
     <button
-        onclick="document.getElementById('carousel2').scrollBy({ left: -300, behavior: 'smooth' })"
-        class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+        onclick="scrollToLeft('carousel2')"
+        class="absolute left-0 h-full w-12 sm:w-18 hover:bg-gradient-to-r from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
         aria-label="Scroll Left"
     >
-        &#8592;
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            width="36"
+            height="36"
+            stroke-width="2"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            stroke="currentColor"
+        >
+            <path d="M15 6l-6 6l6 6"></path>
+        </svg>
     </button>
 
     <!-- Contenedor del carrusel -->
     <div
         id="carousel2"
-        class="flex overflow-x-auto flex-nowrap gap-4 w-full scrollbar-hide scroll-smooth"
+        class="flex overflow-x-scroll flex-nowrap gap-3 scrollbar-hide scroll-smooth z-0"
     >
-        {
-            images.map((image, index) => (
-            <div class="flex flex-col items-center">
+        {people.map((person, index) => (
+            <div
+                class="group relative min-w-[80%] sm:min-w-[calc(100%/3)] md:min-w-[calc(100%/10)] h-64 bg-gray-200 rounded-md overflow-hidden cursor-pointer"
+                id={`carousel-item-${index}`}
+                onclick="toggleInfo(event, 'info-${index}')"
+            >
                 <img
-                    src={image.src}
-                    alt={image.alt}
-                    class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
-                    data-src={image.src}
-                    data-alt={image.alt}
+                    src={person.src}
+                    alt={person.alt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
                 />
-                <p class="mt-2 font-bold text-white">Jocelyn Flores</p>
-                <p class="text-sm text-lime-500">Project Manager</p>
-              </div>
-            ))
-        }
+                <!-- Información del hover -->
+                <div
+                    id={`info-${index}`}
+                    class="absolute inset-0 bg-black bg-opacity-70 text-white flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:delay-200"
+                >
+                    <h2 class="text-lg sm:text-2xl lg:text-4xl font-bold mb-2">{person.name}</h2>
+                    <p class="text-sm">{person.position}</p>
+                </div>
+            </div>
+        ))}
     </div>
 
     <!-- Botón Derecho -->
     <button
-        onclick="document.getElementById('carousel2').scrollBy({ left: 300, behavior: 'smooth' })"
-        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
+        onclick="scrollToRight('carousel2')"
+        class="absolute h-full w-12 sm:w-18 right-0 hover:bg-gradient-to-l from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
         aria-label="Scroll Right"
     >
-        &#8594;
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            width="36"
+            height="36"
+            stroke-width="2"
+        >
+            <path d="M9 6l6 6l-6 6"></path>
+        </svg>
     </button>
-
-    <!-- Modal de imagen expandida -->
-    <div
-        id="imageModal2"
-        class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-75 z-20"
-    >
-        <div class="relative">
-            <img
-                id="modalImage2"
-                src=""
-                alt=""
-                class="max-w-full max-h-[90vh] object-contain rounded-md"
-            />
-        </div>
-    </div>
 </div>
+
+<script>
+    // Función para desplazar a la derecha
+    (window as any).scrollToRight = function(carouselId: string) {
+        const carousel = document.getElementById(carouselId);
+        if (carousel) {
+            const scrollAmount = carousel.offsetWidth * 0.8; // Ajusta según el tamaño
+            // Si llega al final, vuelve al principio
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+    };
+
+    // Función para desplazar a la izquierda
+    (window as any).scrollToLeft = function(carouselId: string) {
+        const carousel = document.getElementById(carouselId);
+        if (carousel) {
+            const scrollAmount = carousel.offsetWidth * 0.8; // Ajusta según el tamaño
+            // Si está al principio, desplaza al final
+            if (carousel.scrollLeft === 0) {
+                carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        }
+    };
+
+    // Función para alternar la visibilidad del contenido en móviles
+    (window as any).toggleInfo = function (event: Event, infoId: string) {
+        const infoElement = document.getElementById(infoId);
+        const allInfos = document.querySelectorAll('[id^="info-"]'); // Selecciona todos los elementos de información
+
+        allInfos.forEach((info) => {
+            if (info.id !== infoId) {
+                info.classList.add('opacity-0'); // Oculta otros elementos
+            }
+        });
+
+        if (infoElement) {
+            const isVisible = !infoElement.classList.contains('opacity-0');
+            infoElement.classList.toggle('opacity-0', isVisible); // Alterna visibilidad
+        }
+    };
+</script>

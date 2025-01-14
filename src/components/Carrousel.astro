@@ -1,131 +1,169 @@
 ---
+// filepath: /c:/Users/Jared/Desktop/TRABAJO/MockUps-Wahu/src/components/Carrousel.astro
 import detalleAriadne from "../assets/detalleAriadne.jpeg";
 import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
 import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
 import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
 import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
 
-// Lista de imágenes con su fuente y descripción
-const images = [
-  { src: detalleAriadne.src, alt: "Detalle Ariadne 1" },
-  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2" },
-  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3" },
-  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4" },
-  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5" },
-  { src: detalleAriadne.src, alt: "Detalle Ariadne 1" },
-  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2" },
-  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3" },
-  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4" },
-  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5" },
+// Lista de imágenes con datos adicionales
+interface Image {
+  src: string;
+  alt: string;
+  title: string;
+  genre: string;
+}
+
+const images: Image[] = [
+  { src: detalleAriadne.src, alt: "Detalle Ariadne 1", title: "Película 1", genre: "Acción" },
+  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2", title: "Película 2", genre: "Drama" },
+  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3", title: "Película 3", genre: "Comedia" },
+  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4", title: "Película 4", genre: "Thriller" },
+  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5", title: "Película 5", genre: "Ciencia Ficción" },
+  { src: detalleAriadne.src, alt: "Detalle Ariadne 1", title: "Película 6", genre: "Romance" },
+  { src: detalle2Ariadne.src, alt: "Detalle Ariadne 2", title: "Película 7", genre: "Aventura" },
+  { src: detalle3Ariadne.src, alt: "Detalle Ariadne 3", title: "Película 8", genre: "Documental" },
+  { src: detalle4Ariadne.src, alt: "Detalle Ariadne 4", title: "Película 9", genre: "Animación" },
+  { src: detalle5Ariadne.src, alt: "Detalle Ariadne 5", title: "Película 10", genre: "Fantasía" },
 ];
 ---
 
-<div class="relative mt-6">
-  <!-- Botón Izquierdo -->
-  <button
-    onclick="document.getElementById('carousel').scrollBy({ left: -300, behavior: 'smooth' })"
-    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
-    aria-label="Scroll Left"
-  >
-    &#8592;
-  </button>
-
-  <!-- Contenedor del carrusel -->
-  <div
-    id="carousel"
-    class="flex overflow-x-auto flex-nowrap gap-4 w-full scrollbar-hide scroll-smooth"
-  >
-    {
-      images.map((image, index) => (
-        <img
-          src={image.src}
-          alt={image.alt}
-          class="w-auto max-h-48 object-cover rounded-md hover-effect cursor-pointer"
-          data-src={image.src}
-          data-alt={image.alt}
-        />
-      ))
-    }
+<div class="bg-principal px-10 py-6">
+  <div class="text-2xl">
+    <h1 class="text-lime-400 font-tittle text-5xl">Material</h1>
+    <h1
+      class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 text-xl lg:text-4xl -mt-3"
+    >
+      Adicional
+    </h1>
   </div>
+  <div class="relative mt-6 flex justify-center">
+    <!-- Botón Izquierdo -->
+    <button
+      onclick="scrollToLeft1()"
+      class="absolute left-0 h-full w-12 sm:w-18 hover:bg-gradient-to-r from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
+      aria-label="Scroll Left"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        width="36"
+        height="36"
+        stroke-width="2"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke="currentColor"
+      >
+        <path d="M15 6l-6 6l6 6"></path>
+      </svg>
+    </button>
 
-  <!-- Botón Derecho -->
-  <button
-    onclick="document.getElementById('carousel').scrollBy({ left: 300, behavior: 'smooth' })"
-    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full z-10"
-    aria-label="Scroll Right"
-  >
-    &#8594;
-  </button>
-
-  <!-- Modal de imagen expandida -->
-  <div
-    id="imageModal"
-    class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-75 z-20"
-  >
-    <div class="relative pt-20">
-      <img
-        id="modalImage"
-        src=""
-        alt=""
-        class="max-w-full max-h-[90vh] object-contain rounded-md"
-      />
+    <!-- Contenedor del carrusel -->
+    <div
+      id="carousel1"
+      class="flex overflow-x-scroll flex-nowrap gap-3 scrollbar-hide scroll-smooth z-0"
+    >
+      {images.map((image) => (
+        <div
+          class="group relative min-w-[80%] sm:min-w-[calc(100%/3)] lg:min-w-[calc(100%/5)] h-64 bg-gray-200 rounded-md overflow-hidden cursor-pointer"
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
+          />
+          <!-- Información adicional -->
+          <div
+            class="absolute inset-0 bg-black bg-opacity-70 text-white flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:delay-200"
+          >
+            <h2 class="text-lg sm:text-2xl lg:text-4xl font-bold mb-2">{image.title}</h2>
+            <p class="text-sm mb-4">{image.genre}</p>
+            <button
+                class="flex items-center justify-center gap-2 px-4 py-2 bg-lime-400 text-black font-bold rounded-lg shadow-black shadow-inner hover:bg-lime-600 hover:text-white transition"
+            >
+                <span>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        width="14"
+                        height="14"
+                    >
+                        <path
+                            d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"
+                        ></path>
+                    </svg>
+                </span>
+                <p class="uppercase">Ver ahora</p>
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
+
+    <!-- Botón Derecho -->
+    <button
+      onclick="scrollToRight1()"
+      class="absolute h-full w-12 sm:w-18 right-0 hover:bg-gradient-to-l from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
+      aria-label="Scroll Right"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="36"
+        height="36"
+        stroke-width="2"
+      >
+        <path d="M9 6l6 6l-6 6"></path>
+      </svg>
+    </button>
   </div>
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage") as HTMLImageElement;
-    const closeModalButton = document.getElementById("closeModalButton");
-    let zoomLevel = 1; // Nivel inicial de zoom
-
-    if (!modal || !modalImage) {
-      console.error("El modal o la imagen del modal no se encontraron en el DOM.");
-      return;
-    }
-
-    // Abrir modal al hacer clic en una imagen
-    document.querySelectorAll("#carousel img").forEach((img) => {
-      img.addEventListener("click", () => {
-        const src = img.getAttribute("data-src");
-        const alt = img.getAttribute("data-alt");
-
-        if (!src || !alt) {
-          console.error("La imagen no tiene los atributos 'data-src' o 'data-alt'.");
-          return;
-        }
-
-        modalImage.src = src;
-        modalImage.alt = alt;
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        document.body.classList.add("overflow-hidden"); // Bloquear scroll
-      });
-    });
-
-    // Cerrar modal al hacer clic en el fondo
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal || e.target === closeModalButton) {
-        modal.classList.remove("flex");
-        modal.classList.add("hidden");
-        document.body.classList.remove("overflow-hidden"); // Restaurar scroll
-        zoomLevel = 1; // Reiniciar zoom
-        modalImage.style.transform = "scale(1)";
-      }
-    });
-
-    // Controlar el zoom con el scroll
-    modal.addEventListener("wheel", (e) => {
-      e.preventDefault(); // Evitar el scroll de la página
-      const zoomStep = 0.1; // Incremento de zoom
-      if (e.deltaY < 0) {
-        zoomLevel = Math.min(zoomLevel + zoomStep, 3); // Limitar zoom máximo
-      } else {
-        zoomLevel = Math.max(zoomLevel - zoomStep, 1); // Limitar zoom mínimo
-      }
-      modalImage.style.transform = `scale(${zoomLevel})`;
-    });
+    const carousel1 = document.getElementById("carousel1");
+    const scrollAmount = 300; // Cantidad de desplazamiento por clic
   });
-</script>
 
+  // Función para desplazar a la derecha
+  function scrollToRight1() {
+    const carousel1 = document.getElementById("carousel1");
+    if (carousel1) {
+      const scrollAmount = carousel1.offsetWidth * 0.8; // Ajusta según el tamaño
+      if (carousel1.scrollLeft + carousel1.clientWidth >= carousel1.scrollWidth) {
+        carousel1.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        carousel1.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  }
+
+  // Función para desplazar a la izquierda
+  function scrollToLeft1() {
+    const carousel1 = document.getElementById("carousel1");
+    if (carousel1) {
+      const scrollAmount = carousel1.offsetWidth * 0.8; // Ajusta según el tamaño
+      if (carousel1.scrollLeft === 0) {
+        carousel1.scrollTo({ left: carousel1.scrollWidth, behavior: "smooth" });
+      } else {
+        carousel1.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
+  }
+
+  // Ensure the functions are used
+  const leftButton = document.querySelector('button[onclick="scrollToLeft1()"]');
+  if (leftButton) {
+    leftButton.addEventListener('click', scrollToLeft1);
+  }
+  const rightButton = document.querySelector('button[onclick="scrollToRight1()"]');
+  if (rightButton) {
+    rightButton.addEventListener('click', scrollToRight1);
+  }
+</script>

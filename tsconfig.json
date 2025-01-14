@@ -6,7 +6,8 @@
   ],
   "exclude": [
     "dist",
-    "src/pages/cinema.astro"
+    "src/pages/cinema.astro",
+    "src/components/Aditional.astro"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
