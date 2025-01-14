@@ -52,7 +52,7 @@ const people: Person[] = [
             <div
                 class="group relative min-w-[80%] sm:min-w-[calc(100%/3)] md:min-w-[calc(100%/10)] h-64 bg-gray-200 rounded-md overflow-hidden cursor-pointer"
                 id={`carousel-item-${index}`}
-                onclick="toggleInfo(event, 'info-${index}')"
+                onclick="redirectToCreators()"
             >
                 <img
                     src={person.src}
@@ -122,20 +122,8 @@ const people: Person[] = [
         }
     };
 
-    // Función para alternar la visibilidad del contenido en móviles
-    (window as any).toggleInfo = function (event: Event, infoId: string) {
-        const infoElement = document.getElementById(infoId);
-        const allInfos = document.querySelectorAll('[id^="info-"]'); // Selecciona todos los elementos de información
-
-        allInfos.forEach((info) => {
-            if (info.id !== infoId) {
-                info.classList.add('opacity-0'); // Oculta otros elementos
-            }
-        });
-
-        if (infoElement) {
-            const isVisible = !infoElement.classList.contains('opacity-0');
-            infoElement.classList.toggle('opacity-0', isVisible); // Alterna visibilidad
-        }
+    // Función para redirigir a creators.astro
+    (window as any).redirectToCreators = function () {
+        window.location.href = '/creators';
     };
 </script>
