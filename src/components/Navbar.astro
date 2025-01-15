@@ -46,7 +46,7 @@ onMount(() => {
     <!-- Logo -->
     <div class="flex items-center">
       <a href="/">
-        <Image src={WahuDark2020} alt="Wahu Logo" class="h-10 w-auto" />
+        <Image src={WahuDark2020} alt="Wahu Logo" class="h-16 w-auto" />
       </a>
     </div>
 
@@ -80,6 +80,10 @@ onMount(() => {
       <a href="/tv" class="nav-link hover:text-white text-gray-400 relative"
       >TV<span class="nav-underline"></span></a
       >
+        <!-- Seccion Premiere -->
+      <a href="/premiere" class="nav-link hover:text-lime-500 text-gray-400 relative"
+      >Premiere<span class="nav-underline"></span></a
+      >
     </div>
 
     <style>
@@ -98,6 +102,7 @@ onMount(() => {
       transform-origin: bottom right;
       transition: transform 0.3s ease-out;
       }
+     
       .nav-link:hover .nav-underline {
       transform: scaleX(1);
       transform-origin: bottom left;

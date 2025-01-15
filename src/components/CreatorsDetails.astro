@@ -1,70 +1,71 @@
 ---
 import AlanCreador from "../assets/AlanCastañeda-CREADORES.png";
+import '@fortawesome/fontawesome-free/css/all.css';
 ---
 
-<div class="bg-principal min-h-screen w-full px-8 flex flex-col justify-center items-center pt-36">
+<div
+  class="bg-principal min-h-screen w-full px-8 flex flex-col justify-center items-center pt-36"
+>
   <div class="text-2xl w-full">
-    <h1 class="text-lime-400 font-tittle text-5xl sm:text-6xl md:text-7xl">Conoce</h1>
+    <h1 class="text-lime-400 font-tittle text-5xl sm:text-6xl md:text-7xl">
+      Conoce
+    </h1>
     <h1
       class="text-slate-400 uppercase font-extrabold ml-8 sm:ml-16 -mt-3 text-4xl sm:text-5xl md:text-6xl"
     >
       A los creadores
     </h1>
   </div>
+
   <div class="flex flex-wrap mt-16 justify-center sm:justify-start">
     <img
       src={AlanCreador.src}
       alt="Alan Castaneda CREADORES"
       class="w-full max-w-xs sm:max-w-sm h-auto object-cover rounded-md"
     />
-    <div class="flex flex-col mt-8 sm:mt-0 sm:ml-8">
-      <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">Alan Castañeda</p>
-      <div class="mt-4 sm:mt-8">
-        <p class="text-slate-400 text-base sm:text-lg md:text-xl">País de origen: México</p>
-        <p class="text-slate-400 text-base sm:text-lg md:text-xl">País de residencia: México</p>
-        <p class="text-slate-400 text-base sm:text-lg md:text-xl">Fecha de nacimiento: 15/noviembre/2000</p>
-        <p class="text-slate-400 text-base sm:text-lg md:text-xl">Nacionalidad: mexicano</p>
+    <div class="flex flex-col mt-8 sm:mt-0 sm:ml-8 space-y-4 sm:space-y-6">
+      <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl font-bold">
+        Alan Castañeda
+      </p>
+      <div class="space-y-4 sm:space-y-6">
         <p class="text-slate-400 text-base sm:text-lg md:text-xl">
-          Correo electrónico: alancastaneda151515@gmail.com
+          <strong>País de origen:</strong> México
         </p>
         <p class="text-slate-400 text-base sm:text-lg md:text-xl">
-          Facebook: <a
-            href="https://www.facebook.com/AlanMCastaneda"
-            target="_blank"
-            class="text-slate-400 underline"
-            >https://www.facebook.com/AlanMCastaneda</a
-          >
+          <strong>País de residencia:</strong> México
         </p>
         <p class="text-slate-400 text-base sm:text-lg md:text-xl">
-          Instagram: <a
-            href="https://www.instagram.com/alancastaneda15/"
-            target="_blank"
-            class="text-slate-400 underline"
-            >https://www.instagram.com/alancastaneda15/</a
-          >
+          <strong>Fecha de nacimiento:</strong> 15/11/2000
         </p>
         <p class="text-slate-400 text-base sm:text-lg md:text-xl">
-          TikTok: <a
-            href="https://www.tiktok.com/@alancastaneda15"
-            target="_blank"
-            class="text-slate-400 underline"
-            >https://www.tiktok.com/@alancastaneda15</a
-          >
+          <strong>Nacionalidad:</strong> Mexicano
         </p>
-        <p class="text-slate-400 text-base sm:text-lg md:text-xl">Twitter: ---</p>
         <p class="text-slate-400 text-base sm:text-lg md:text-xl">
-          LinkedIn: <a
-            href="https://www.linkedin.com/in/alancastaneda/"
-            target="_blank"
-            class="text-slate-400 underline"
-            >https://www.linkedin.com/in/alancastaneda/</a
-          >
+          <strong>Correo electrónico:</strong> <a href="mailto:alancastaneda151515@gmail.com" class="text-slate-400 underline">alancastaneda151515@gmail.com</a>
         </p>
+      </div>
+      <div class="flex space-x-4 mt-4">
+        <a href="https://www.facebook.com/AlanMCastaneda" target="_blank" class="text-slate-400 hover:text-lime-400">
+          <i class="fab fa-facebook-square text-2xl"></i>
+        </a>
+        <a href="https://www.instagram.com/alancastaneda15/" target="_blank" class="text-slate-400 hover:text-lime-400">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://www.tiktok.com/@alancastaneda15" target="_blank" class="text-slate-400 hover:text-lime-400">
+          <i class="fab fa-tiktok text-2xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/alancastaneda/" target="_blank" class="text-slate-400 hover:text-lime-400">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
       </div>
     </div>
   </div>
+  
+
   <div class="py-6 sm:px-8">
-    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">Reseña</p>
+    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">
+      Reseña
+    </p>
     <p class="text-slate-400 text-base sm:text-lg md:text-xl">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa
       accusantium quibusdam, esse nihil, consequuntur, tempora totam ducimus eum
@@ -80,7 +81,9 @@ import AlanCreador from "../assets/AlanCastañeda-CREADORES.png";
     </p>
   </div>
   <div class="py-6 sm:px-8">
-    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">Estudios</p>
+    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">
+      Estudios
+    </p>
     <p class="text-slate-400 text-base sm:text-lg md:text-xl">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa
       accusantium quibusdam, esse nihil, consequuntur, tempora totam ducimus eum
@@ -95,4 +98,19 @@ import AlanCreador from "../assets/AlanCastañeda-CREADORES.png";
       obcaecati iste, modi unde corporis quo enim dignissimos?
     </p>
   </div>
+
+  <div class="py-6 sm:px-8">
+    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">
+      Galería
+    </p>
+
+  </div>
+
+  <div class="py-6 sm:px-8">
+    <p class="text-lime-400 uppercase text-2xl sm:text-3xl md:text-4xl">
+      Filmografía
+    </p>
+    
+  </div>
+
 </div>
