@@ -1,0 +1,65 @@
+---
+
+---
+
+<div class="h-screen w-auto bg-principal flex items-center relative">
+    <img
+        src="/src/assets/logo/Logo_Wahu_TodoGris.png"
+        alt="TodoGris"
+        class="absolute w-screen h-screen object-cover"
+        style="transform: translateX(-0%);"
+    />
+
+    <div class="absolute -translate-x-36 top-44 w-3/4">
+        <div class="w-1/2 mx-auto text-lime-400">
+            <h1 class="text-8xl font-bold">Bienvenido</h1>
+            <div>
+                <h2 class="text-4xl font-thin">Inicia sesión con tu cuenta o crea una nueva</h2>
+            </div>
+        </div>
+    </div>
+    <div
+        class="absolute bg-black bg-opacity-25 backdrop-blur-md py-12 rounded-xl border border-solid border-lime-400 right-1/4 bottom-0 -translate-y-1/3 translate-x-1/2 w-1/4"
+    >
+        <form action="" class="my-4 w-3/4 mx-auto">
+            <div class="mb-8">
+                <label for="email" class="block text-xl text-white"
+                    >Correo Electrónico</label
+                >
+                <input
+                    placeholder="alguien@example.com"
+                    required
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="mt-4 w-full px-3 py-3 bg-gray-400 bg-opacity-25 border border-transparent text-white shadow-inner shadow-black rounded-md focus:outline-none focus:ring-lime-400 focus:border-lime-400 sm:text-sm font-light text-2xl tracking-widest"
+                />
+            </div>
+            <div class="mb-8">
+                <label for="password" class="block text-xl text-white"
+                    >Contraseña</label
+                >
+                <input
+                    placeholder="********"
+                    required
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="mt-4 block w-full px-3 py-3 bg-gray-400 bg-opacity-25 border border-transparent text-white shadow-inner shadow-black rounded-md focus:outline-none focus:ring-lime-400 focus:border-lime-400 sm:text-sm font-light text-2xl tracking-widest"
+                />
+            </div>
+            <div class="flex items-center justify-around">
+                <button
+                    type="submit"
+                    class="w-auto bg-transparent py-2 px-5 rounded-md text-white hover:text-lime-400 text-xl duration-300"
+                    >Registrarse</button
+                >
+                <button
+                    type="submit"
+                    class="w-auto bg-transparent hover:bg-lime-400 border border-solid border-lime-400 py-2 px-5 rounded-md text-lime-400 hover:text-principal font-bold text-xl duration-300"
+                    >Iniciar Sesión</button
+                >
+            </div>
+        </form>
+    </div>
+</div>
