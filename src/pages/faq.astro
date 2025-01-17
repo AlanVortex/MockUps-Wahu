@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import WahuDark2020 from '../assets/WahuDark2020.svg';
 import BannerHorizontal from '../assets/banners/BannerHorizontal.png';
+import faqImg from '../assets/faqImg.png';
 ---
 <head>
     <meta charset="UTF-8" />
@@ -65,14 +65,14 @@ import BannerHorizontal from '../assets/banners/BannerHorizontal.png';
             transform: rotate(180deg);
         }
         details:hover {
-        transform: scale(1.05);
+        transform: scale(1.02);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 
 <Layout>
-    <div class="bg-principal min-h-screen w-full pt-20 pb-10">
+    <div class="bg-principal min-h-screen w-full pt-20">
 
       <!-- <div class="flex justify-center mb-8 bg-white w-full">
         <img src={WahuDark2020.src} alt="Logo Wahu Dark" class="w-40 h-auto mt-10 mb-10" />
@@ -85,17 +85,18 @@ import BannerHorizontal from '../assets/banners/BannerHorizontal.png';
 
       <section class="w-full px-8">
         <div class="grid grid-cols-12 gap-8">
-          <!-- Columna izquierda (2 columnas) -->
-          <div class="col-span-3">
-            <!-- Agrega los elementos que desees en la columna izquierda aquí -->
+
+          <!-- Columna izquierda
+          <div class="col-span-3 bg-transparent border rounded-lg">
+             
             <p class="text-slate-400">Espacio izquierdo</p>
-          </div>
+          </div> -->
   
           <!-- Columna central (6 columnas para FAQ) -->
-          <div class="col-span-6">
-            <div class="text-2xl mb-8">
-              <h1 class="text-lime-400 font-tittle text-5xl">FAQ</h1>
-              <h1 class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 -mt-3 text-xl lg:text-4xl">Frecuent Asked Questions</h1>
+          <div class="col-span-7">
+            <div class="text-2xl mb-8 text-center">
+              <h1 class="text-lime-400 font-tittle text-5xl mb-1">F A Q</h1>
+              <h1 class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 -mt-2 text-xl lg:text-4xl">Frecuent Asked Questions</h1>
             </div>
             <div class="space-y-6">
               <details class="border rounded-lg shadow-md overflow-hidden">
@@ -145,6 +146,18 @@ import BannerHorizontal from '../assets/banners/BannerHorizontal.png';
                   La mayoría del contenido en Wahu Streaming es gratuito, pero ciertos eventos exclusivos o funciones especiales pueden requerir una suscripción o un pago puntual.
                 </p>
               </details>
+
+              <details class="border rounded-lg shadow-md overflow-hidden">
+                <summary class="cursor-pointer font-semibold text-lg text-lime-400 flex justify-between items-center bg-slate-800 p-4">
+                  ¿Puedo ver contenido en Wahu Streaming sin conexión a internet?
+                  <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </summary>
+                <p class="p-4 bg-slate-700 text-slate-400">
+                  Sí, Wahu Streaming permite descargar contenido seleccionado para verlo sin conexión. Solo necesitas asegurarte de que la función esté habilitada en tu cuenta y de que tengas espacio suficiente en tu dispositivo.
+                </p>
+              </details>              
               
               <details class="border rounded-lg shadow-md overflow-hidden">
                 <summary class="cursor-pointer font-semibold text-lg text-lime-400 flex justify-between items-center bg-slate-800 p-4">
@@ -175,14 +188,84 @@ import BannerHorizontal from '../assets/banners/BannerHorizontal.png';
                   Actualmente, Wahu Streaming está disponible en español, pero estamos trabajando para expandir a más idiomas en el futuro cercano.
                 </p>
               </details>
+              
             </div>
           </div>
   
-          <!-- Columna derecha (4 columnas) -->
-          <div class="col-span-3">
-            <!-- Agrega los elementos que desees en la columna derecha aquí -->
-            <p class="text-slate-400">Espacio derecho</p>
+          <div class="col-span-5 bg-transparent">
+            <div class="grid grid-rows-2 gap-4 h-full">
+          
+              <!-- Caja Inferior: Formulario -->
+              <div class="border p-4 rounded-lg bg-black bg-opacity-25 backdrop-blur-md">
+                <form action="#" class="space-y-6">
+                  <h2 class="text-center text-lg font-semibold text-white">Deja tu Pregunta</h2>
+          
+                  <!-- Campo de Nombre -->
+                  <div>
+                    <label for="name" class="block text-sm text-white mb-1">Tu Nombre</label>
+                    <input
+                      placeholder="Tu nombre completo"
+                      required
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="w-full px-3 py-2 bg-gray-400 bg-opacity-25 border border-transparent text-white shadow-inner rounded-md focus:outline-none focus:ring-lime-400 focus:border-lime-400 sm:text-sm"
+                    />
+                  </div>
+          
+                  <!-- Campo de Correo -->
+                  <div>
+                    <label for="email" class="block text-sm text-white mb-1">Correo Electrónico</label>
+                    <input
+                      placeholder="alguien@example.com"
+                      required
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="w-full px-3 py-2 bg-gray-400 bg-opacity-25 border border-transparent text-white shadow-inner rounded-md focus:outline-none focus:ring-lime-400 focus:border-lime-400 sm:text-sm"
+                    />
+                  </div>
+          
+                  <!-- Campo de Pregunta -->
+                  <div>
+                    <label for="question" class="block text-sm text-white mb-1">Tu Pregunta</label>
+                    <textarea
+                      placeholder="Escribe tu pregunta aquí..."
+                      required
+                      id="question"
+                      name="question"
+                      rows="3"
+                      class="w-full px-3 py-2 bg-gray-400 bg-opacity-25 border border-transparent text-white shadow-inner rounded-md focus:outline-none focus:ring-lime-400 focus:border-lime-400 sm:text-sm"
+                    ></textarea>
+                  </div>
+          
+                  <!-- Botones -->
+                  <div class="flex items-center justify-between">
+                    <button
+                      type="reset"
+                      class="px-4 py-2 bg-transparent text-sm text-white hover:text-lime-400 border border-transparent rounded-md focus:outline-none"
+                    >
+                      Limpiar
+                    </button>
+                    <button
+                      type="submit"
+                      class="px-4 py-2 bg-lime-400 text-sm text-black font-bold rounded-md hover:bg-lime-500 focus:outline-none"
+                    >
+                      Enviar Pregunta
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+               <!-- Caja Superior: Imagen centrada -->
+               <div class="p-4 flex items-center justify-center">
+                <img src={faqImg.src} alt="Imagen FAQ" class="max-w-full max-h-full rounded-md">
+              </div>
+          
+            </div>
           </div>
+          
+          
         </div>
       </section>
     </div>
