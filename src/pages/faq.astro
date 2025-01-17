@@ -6,6 +6,26 @@ import faqImg from '../assets/faqImg.png';
 <head>
     <meta charset="UTF-8" />
     <title>FAQ</title>
+
+    <script>
+      // Seleccionamos todos los elementos 'details'
+      const allDetails = document.querySelectorAll('details');
+    
+      // Agregamos un evento para cada 'details'
+      allDetails.forEach(detail => {
+        detail.addEventListener('toggle', function() {
+          // Si el 'details' está abierto, cerramos los demás
+          if (this.open) {
+            allDetails.forEach(otherDetail => {
+              if (otherDetail !== this) {
+                otherDetail.removeAttribute('open');
+              }
+            });
+          }
+        });
+      });
+    </script>
+
     <style>
         body {
             background: linear-gradient(135deg, #1e293b, #111827);
@@ -84,7 +104,8 @@ import faqImg from '../assets/faqImg.png';
     
 
       <section class="w-full px-8">
-        <div class="grid grid-cols-12 gap-8">
+        <div class="grid grid-cols-12 gap-8 mb-12"> 
+          <!-- mb-8 -->
 
           <!-- Columna izquierda
           <div class="col-span-3 bg-transparent border rounded-lg">
@@ -98,7 +119,7 @@ import faqImg from '../assets/faqImg.png';
               <h1 class="text-lime-400 font-tittle text-5xl mb-1">F A Q</h1>
               <h1 class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 -mt-2 text-xl lg:text-4xl">Frecuent Asked Questions</h1>
             </div>
-            <div class="space-y-6">
+            <div class="space-y-6 ">
               <details class="border rounded-lg shadow-md overflow-hidden">
                 <summary class="cursor-pointer font-semibold text-lg text-lime-400 flex justify-between items-center bg-slate-800 p-4">
                   ¿Qué es Wahu Streaming?
@@ -258,7 +279,7 @@ import faqImg from '../assets/faqImg.png';
               </div>
 
                <!-- Caja Superior: Imagen centrada -->
-               <div class="p-4 flex items-center justify-center">
+               <div class="p-4 flex items-center justify-center mt-8">
                 <img src={faqImg.src} alt="Imagen FAQ" class="max-w-full max-h-full rounded-md">
               </div>
           
