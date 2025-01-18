@@ -1,217 +1,369 @@
 ---
 import { v4 as uuidv4 } from "uuid";
-import detalleAriadne from "../assets/detalleAriadne.jpeg";
-import detalle2Ariadne from "../assets/detalle2Ariadne.jpeg";
-import detalle3Ariadne from "../assets/detalle3Ariadne.jpg";
-import detalle4Ariadne from "../assets/detalle4Ariadne.jpeg";
-import detalle5Ariadne from "../assets/detalle5Ariadne.jpg";
+import detalleAriadne from "../assets/IMAGENES-CONTENIDO/1.png";
+import detalle2Ariadne from "../assets/IMAGENES-CONTENIDO/2.png";
+import detalle3Ariadne from "../assets/IMAGENES-CONTENIDO/3.png";
+import detalle4Ariadne from "../assets/IMAGENES-CONTENIDO/4.png";
+import detalle5Ariadne from "../assets/IMAGENES-CONTENIDO/5.png";
+import detalle6Ariadne from "../assets/IMAGENES-CONTENIDO/6.png";
 
-interface Image {
+interface Movie {
   src: string;
   alt: string;
   title: string;
   genre: string;
+  category: string;
 }
 
-const images: Image[] = [
+const fetchMovies = (): Movie[] => [
+  // Acción (12 películas)
   {
     src: detalleAriadne.src,
     alt: "Detalle Ariadne 1",
     title: "Película 1",
     genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalleAriadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalleAriadne.src,
+    alt: "Detalle Ariadne 1",
+    title: "Película 1",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalleAriadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalleAriadne.src,
+    alt: "Detalle Ariadne 1",
+    title: "Película 1",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalle4Ariadne.src,
+    alt: "Detalle Ariadne 4",
+    title: "Película 4",
+    genre: "Acción",
+    category: "Acción",
+  },
+  {
+    src: detalleAriadne.src,
+    alt: "Detalle Ariadne 1",
+    title: "Película 1",
+    genre: "Acción",
+    category: "Acción",
+  },
+
+  // Drama (12 películas)
+  {
+    src: detalle2Ariadne.src,
+    alt: "Detalle Ariadne 2",
+    title: "Película 2",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle6Ariadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Drama",
+    category: "Drama",
   },
   {
     src: detalle2Ariadne.src,
     alt: "Detalle Ariadne 2",
     title: "Película 2",
     genre: "Drama",
-  },
-  {
-    src: detalle3Ariadne.src,
-    alt: "Detalle Ariadne 3",
-    title: "Película 3",
-    genre: "Comedia",
-  },
-  {
-    src: detalle4Ariadne.src,
-    alt: "Detalle Ariadne 4",
-    title: "Película 4",
-    genre: "Thriller",
-  },
-  {
-    src: detalle5Ariadne.src,
-    alt: "Detalle Ariadne 5",
-    title: "Película 5",
-    genre: "Ciencia Ficción",
-  },
-  {
-    src: detalleAriadne.src,
-    alt: "Detalle Ariadne 1",
-    title: "Película 1",
-    genre: "Acción",
+    category: "Drama",
   },
   {
     src: detalle2Ariadne.src,
     alt: "Detalle Ariadne 2",
     title: "Película 2",
     genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle6Ariadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle2Ariadne.src,
+    alt: "Detalle Ariadne 2",
+    title: "Película 2",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle6Ariadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle2Ariadne.src,
+    alt: "Detalle Ariadne 7",
+    title: "Película 7",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle6Ariadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle2Ariadne.src,
+    alt: "Detalle Ariadne 2",
+    title: "Película 2",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle2Ariadne.src,
+    alt: "Detalle Ariadne 2",
+    title: "Película 2",
+    genre: "Drama",
+    category: "Drama",
+  },
+  {
+    src: detalle6Ariadne.src,
+    alt: "Detalle Ariadne 6",
+    title: "Película 6",
+    genre: "Drama",
+    category: "Drama",
+  },
+
+  // Comedia (12 películas)
+  {
+    src: detalle3Ariadne.src,
+    alt: "Detalle Ariadne 3",
+    title: "Película 3",
+    genre: "Comedia",
+    category: "Comedia",
   },
   {
     src: detalle3Ariadne.src,
     alt: "Detalle Ariadne 3",
     title: "Película 3",
     genre: "Comedia",
+    category: "Comedia",
   },
   {
-    src: detalle4Ariadne.src,
-    alt: "Detalle Ariadne 4",
-    title: "Película 4",
-    genre: "Thriller",
+    src: detalle3Ariadne.src,
+    alt: "Detalle Ariadne 3",
+    title: "Película 3",
+    genre: "Comedia",
+    category: "Comedia",
   },
   {
-    src: detalle5Ariadne.src,
-    alt: "Detalle Ariadne 5",
-    title: "Película 5",
-    genre: "Ciencia Ficción",
+    src: detalle3Ariadne.src,
+    alt: "Detalle Ariadne 3",
+    title: "Película 3",
+    genre: "Comedia",
+    category: "Comedia",
   },
 ];
 
-const carouselId = uuidv4();
+const movies = fetchMovies();
+
+// Agrupar películas por categoría
+const groupedMovies = movies.reduce(
+  (acc, movie) => {
+    if (!acc[movie.category]) acc[movie.category] = [];
+    acc[movie.category].push(movie);
+    return acc;
+  },
+  {} as Record<string, Movie[]>
+);
 ---
 
 <div class="bg-principal px-10 py-6">
-  <div class="text-2xl">
-    <h1 class="text-lime-400 font-tittle text-5xl">Material</h1>
-    <h1
-      class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 text-xl lg:text-4xl -mt-3"
-    >
-      Adicional
-    </h1>
-  </div>
-
-  <div class="relative mt-6 flex justify-center">
-    <!-- Botón Izquierdo -->
-    <button
-      onclick={`scrollToLeft('${carouselId}')`}
-      class="absolute left-0 h-full w-12 sm:w-18 hover:bg-gradient-to-r from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
-      aria-label="Scroll Left"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        width="36"
-        height="36"
-        stroke-width="2"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke="currentColor"
-      >
-        <path d="M15 6l-6 6l6 6"></path>
-      </svg>
-    </button>
-
-    <!-- Contenedor del carrusel -->
-    <div
-      id={carouselId}
-      class="carousel-container flex overflow-x-scroll flex-nowrap gap-3 scrollbar-hide scroll-smooth z-0 transition-transform duration-300"
-    >
-      {
-        images.map((image, index) => (
-          <div class="group relative min-w-[80%] sm:min-w-[calc(100%/3)] lg:min-w-[calc(100%/5)] h-64 bg-gray-200 rounded-md overflow-hidden cursor-pointer">
-            <img
-              src={image.src}
-              alt={image.alt}
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-125"
-            />
-            <div class="absolute inset-0 bg-black bg-opacity-70 text-white flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:delay-200">
-              <h2 class="text-lg sm:text-2xl lg:text-4xl font-bold mb-2">
-                {image.title}
-              </h2>
-              <p class="text-sm mb-4">{image.genre}</p>
-              <button class="flex items-center justify-center gap-2 px-4 py-2 bg-lime-400 text-black font-bold rounded-lg shadow-black shadow-inner hover:bg-lime-600 hover:text-white transition">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
-                  </svg>
-                </span>
-                <p class="uppercase">Ver ahora</p>
-              </button>
-            </div>
+  {
+    Object.entries(groupedMovies).map(([category, movies]) => {
+      const carouselId = uuidv4();
+      return (
+        <section data-key={category} class="mb-10">
+          {/* Título de la categoría */}
+          <div class="text-2xl mb-6">
+            <h1 class="text-lime-400 font-tittle text-5xl">Material</h1>
+            <h1 class="text-slate-400 uppercase font-extrabold ml-10 lg:ml-16 text-xl lg:text-4xl -mt-3">{category}</h1>
           </div>
-        ))
-      }
-    </div>
 
-    <!-- Botón Derecho -->
-    <button
-      onclick={`scrollToRight('${carouselId}')`}
-      class="absolute h-full w-12 sm:w-18 right-0 hover:bg-gradient-to-l from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
-      aria-label="Scroll Right"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        width="36"
-        height="36"
-        stroke-width="2"
-      >
-        <path d="M9 6l6 6l-6 6"></path>
-      </svg>
-    </button>
-  </div>
+          {/* Contenedor del carrusel */}
+          <div class="relative mt-6 flex justify-center">
+            {/* Botón Izquierdo */}
+            <button
+              data-carousel-id={carouselId}
+              data-direction="left"
+              class="absolute left-0 h-full w-12 sm:w-18 hover:bg-gradient-to-r from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
+              aria-label="Scroll Left"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                width="36"
+                height="36"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke="currentColor"
+              >
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+
+            {/* Carrusel */}
+            <div
+              id={carouselId}
+              class="carousel-container flex overflow-x-scroll flex-nowrap gap-3 scrollbar-hide scroll-smooth z-0 transition-transform duration-300"
+            >
+              {movies.map((movie, index) => (
+                <div
+                  data-key={index}
+                  class="group relative min-w-[100%/12] sm:min-w-[calc(100%/12)] lg:min-w-[calc(100%/8)] h-96 bg-gray-200 rounded-md overflow-hidden cursor-pointer flex-shrink-0"
+                >
+                  <img
+                    src={movie.src}
+                    alt={movie.alt}
+                    class="w-auto h-full object-cover transition-transform duration-500 group-hover:scale-125"
+                  />
+                  <div class="absolute inset-0 bg-black bg-opacity-70 text-white flex flex-col justify-center items-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-hover:delay-200">
+                    <h2 class="text-lg sm:text-2xl lg:text-4xl font-bold mb-2">
+                      {movie.title}
+                    </h2>
+                    <p class="text-sm mb-4">{movie.genre}</p>
+                    <button class="flex items-center justify-center gap-2 px-4 py-2 bg-lime-400 text-black font-bold rounded-lg shadow-black shadow-inner hover:bg-lime-600 hover:text-white transition">
+                      Ver más
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Botón Derecho */}
+            <button
+              data-carousel-id={carouselId}
+              data-direction="right"
+              class="absolute right-0 h-full w-12 sm:w-18 hover:bg-gradient-to-l from-principal duration-300 bg-opacity-50 text-white p-2 z-10"
+              aria-label="Scroll Right"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                width="36"
+                height="36"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke="currentColor"
+              >
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </button>
+          </div>
+        </section>
+      );
+    })
+  }
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Función para desplazar a la derecha
-      function scrollToRight(carouselId: string) {
-        const carousel = document.getElementById(carouselId);
-        if (carousel) {
-          const scrollByAmount = carousel.offsetWidth * 0.5; // Ajusta el desplazamiento
-          carousel.classList.add("scrolling");
-          if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+  document.addEventListener("DOMContentLoaded", () => {
+    // Función para desplazar el carrusel con retorno al inicio o final
+    function handleScroll(event: Event) {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      const button = target.closest("button");
+      if (!button) return;
+
+      const direction = button.getAttribute("data-direction");
+      const carouselId = button.getAttribute("data-carousel-id");
+      const carousel = carouselId ? document.getElementById(carouselId) : null;
+
+      if (carousel) {
+        const scrollAmount = carousel.offsetWidth;
+        const maxScrollLeft = carousel.scrollWidth - carousel.offsetWidth;
+
+        if (direction === "right") {
+          if (carousel.scrollLeft >= maxScrollLeft) {
+            // Volver al inicio si estamos al final
             carousel.scrollTo({ left: 0, behavior: "smooth" });
           } else {
-            carousel.scrollBy({ left: scrollByAmount, behavior: "smooth" });
+            // Desplazar hacia la derecha
+            carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
           }
-          setTimeout(() => carousel.classList.remove("scrolling"), 300);
-        }
-      }
-  
-      // Función para desplazar a la izquierda
-      function scrollToLeft(carouselId: string) {
-        const carousel = document.getElementById(carouselId);
-        if (carousel) {
-          const scrollByAmount = carousel.offsetWidth * 0.5; // Ajusta el desplazamiento
-          carousel.classList.add("scrolling");
-          if (carousel.scrollLeft === 0) {
-            carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
+        } else if (direction === "left") {
+          if (carousel.scrollLeft <= 0) {
+            // Ir al final si estamos al inicio
+            carousel.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
           } else {
-            carousel.scrollBy({ left: -scrollByAmount, behavior: "smooth" });
+            // Desplazar hacia la izquierda
+            carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
           }
-          setTimeout(() => carousel.classList.remove("scrolling"), 300);
         }
       }
-  
-      window.scrollToRight = scrollToRight;
-      window.scrollToLeft = scrollToLeft;
-    });
-  
-  declare global {
-    interface Window {
-      scrollToRight: (carouselId: string) => void;
-      scrollToLeft: (carouselId: string) => void;
     }
-  }
+
+    // Asignar eventos a todos los botones
+    document.querySelectorAll("button[data-carousel-id]").forEach((button) => {
+      button.addEventListener("click", handleScroll);
+    });
+  });
 </script>
